@@ -10,7 +10,7 @@ X = X[filter].values / 255
 model = LassoNetAutoEncoder(
     M=30, n_iters=(3000, 500), path_multiplier=1.05, verbose=True
 )
-path = model.path(X)
+path = model.path(X, return_state_dicts=True)
 
 img = model.feature_importances_.reshape(28, 28)
 

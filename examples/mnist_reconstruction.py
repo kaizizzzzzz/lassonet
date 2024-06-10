@@ -7,8 +7,8 @@ X, y = fetch_openml(name="mnist_784", return_X_y=True)
 filter = y == "3"
 X = X[filter].values / 255
 
-model = LassoNetRegressor(M=30, n_iters=(3000, 500), path_multiplier=1.05, verbose=True)
-path = model.path(X, X)
+model = LassoNetRegressor(M=10, n_iters=(3000, 500), path_multiplier=1.05, verbose=True)
+path = model.path(X, X, return_state_dicts=True)
 
 img = model.feature_importances_.reshape(28, 28)
 

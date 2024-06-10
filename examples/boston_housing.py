@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 
-from sklearn.datasets import load_boston
+# from sklearn.datasets import load_boston
+# from sklearn.datasets import fetch_california_housing
+import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import scale
 from sklearn.model_selection import train_test_split
@@ -11,7 +13,8 @@ import numpy as np
 from lassonet import LassoNetRegressor
 
 
-dataset = load_boston()
+# dataset = load_boston()
+housing = fetch_california_housing()
 X = dataset.data
 y = dataset.target
 _, true_features = X.shape
@@ -36,7 +39,7 @@ path = model.path(X_train, y_train)
 n_selected = []
 mse = []
 lambda_ = []
-
+breakpoint()
 for save in path:
     model.load(save.state_dict)
     y_pred = model.predict(X_test)

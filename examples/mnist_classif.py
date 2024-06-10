@@ -12,9 +12,10 @@ X = X[filter].values / 255
 y = LabelEncoder().fit_transform(y[filter])
 
 X_train, X_test, y_train, y_test = train_test_split(X, y)
-
+breakpoint()
 model = LassoNetClassifier(M=30, verbose=True)
-path = model.path(X_train, y_train)
+path = model.path(X_train, y_train, return_state_dicts=True)
+breakpoint()
 
 img = model.feature_importances_.reshape(28, 28)
 

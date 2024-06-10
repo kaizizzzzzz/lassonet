@@ -439,7 +439,6 @@ class BaseLassoNet(BaseEstimator, metaclass=ABCMeta):
                 lambda_seq = _lambda_seq(self.lambda_start_)
             else:
                 lambda_seq = _lambda_seq(self.lambda_start)
-
         # extract first value of lambda_seq
         lambda_seq = iter(lambda_seq)
         lambda_start = next(lambda_seq)
@@ -585,7 +584,7 @@ class LassoNetClassifier(
         output_shape = self._output_shape(y)
         if self.class_weight is not None:
             assert output_shape == len(self.class_weight)
-
+        breakpoint()
         return super()._init_model(X, y)
 
     def _convert_y(self, y) -> torch.TensorType:
